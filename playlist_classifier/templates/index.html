@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist Creator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Playlist Creator</h1>
+        <p>Welcome, {{ session['username'] }}! <a href="{{ url_for('logout') }}">Logout</a></p>
+        
+        <h2>Classify Playlist</h2>
+        <form id="classifyForm">
+            <input type="text" id="playlistId" placeholder="Spotify Playlist ID" required>
+            <button type="submit">Classify</button>
+        </form>
+        <div id="classificationResult"></div>
+
+        <h2>Generate Playlist</h2>
+        <form id="generateForm">
+            <select id="moodSelect" required>
+                <option value="">Select Mood</option>
+                <option value="happy">Happy</option>
+                <option value="playful">Playful</option>
+                <option value="dark">Dark</option>
+                <option value="melancholic">Melancholic</option>
+                <option value="energetic">Energetic</option>
+            </select>
+            <select id="genreSelect" required>
+                <option value="">Select Genre</option>
+                <option value="techno">Techno</option>
+                <option value="metal">Metal</option>
+                <option value="JPop">JPop</option>
+                <option value="rock">Rock</option>
+                <option value="classical">Classical</option>
+            </select>
+            <button type="submit">Generate</button>
+        </form>
+        <div id="generationResult"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
